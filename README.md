@@ -7,7 +7,8 @@
 ## Стрим
 
 > Для ui использовали material ui
-> [![watch the video](https://img.youtube.com/vi/6Sce9sppCj0/maxresdefault.jpg)](https://youtu.be/6Sce9sppCj0)
+
+[![watch the video](https://img.youtube.com/vi/6Sce9sppCj0/maxresdefault.jpg)](https://youtu.be/6Sce9sppCj0)
 
 ## Социальные сети
 
