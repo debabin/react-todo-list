@@ -1,7 +1,8 @@
 import React from 'react';
-import { Box } from '@mui/material';
 
 import { Header, TodoPanel, TodoList } from './components';
+
+import styles from './App.module.css';
 
 const DEFAULT_TODO_LIST = [
   { id: 1, name: 'task 1', description: 'description 1', checked: false },
@@ -55,8 +56,8 @@ export const App = () => {
   };
 
   return (
-    <Box marginTop={5} height='100%' display='flex' justifyContent='center' alignContent='center'>
-      <Box display='flex' flexDirection='column' width='500px'>
+    <div className={styles.app_container}>
+      <div className={styles.container}>
         <Header todoCount={todos.length} />
         <TodoPanel mode='add' addTodo={addTodo} />
         <TodoList
@@ -67,7 +68,7 @@ export const App = () => {
           selectTodoIdForEdit={selectTodoIdForEdit}
           changeTodo={changeTodo}
         />
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 };
