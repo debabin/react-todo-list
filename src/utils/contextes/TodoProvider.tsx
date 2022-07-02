@@ -1,7 +1,10 @@
 import React from 'react';
-import { Box } from '@mui/material';
 
-import { Header, TodoPanel, TodoList } from './components';
+import { TodoContext } from './TodoContext';
+
+interface StoreProviderProps {
+  children: React.ReactNode;
+}
 
 const DEFAULT_TODO_LIST = [
   { id: 1, name: 'task 1', description: 'description 1', checked: false },
@@ -15,7 +18,7 @@ const DEFAULT_TODO_LIST = [
   }
 ];
 
-export const App = () => {
+export const TodoProvider: React.FC<StoreProviderProps> = ({ children }) => {
   const [todoIdForEdit, setTodoIdForEdit] = React.useState<number | null>(null);
   const [todos, setTodos] = React.useState(DEFAULT_TODO_LIST);
 
@@ -54,20 +57,10 @@ export const App = () => {
     setTodoIdForEdit(null);
   };
 
-  return (
-    <Box marginTop={5} height='100%' display='flex' justifyContent='center' alignContent='center'>
-      <Box display='flex' flexDirection='column' width='500px'>
-        <Header todoCount={todos.length} />
-        <TodoPanel mode='add' addTodo={addTodo} />
-        <TodoList
-          todoIdForEdit={todoIdForEdit}
-          todos={todos}
-          deleteTodo={deleteTodo}
-          checkTodo={checkTodo}
-          selectTodoIdForEdit={selectTodoIdForEdit}
-          changeTodo={changeTodo}
-        />
-      </Box>
-    </Box>
+  const value = React.useMemo(
+    () => ({ todos, deleteTodo, changeTodo, checkTodo, addTodo, selectTodoIdForEdit }),
+    [todos, deleteTodo, changeTodo, checkTodo, addTodo, selectTodoIdForEdit]
   );
+
+  return <TodoContext.Provider value={value}>{children}</TodoContext.Provider>;
 };

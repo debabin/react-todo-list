@@ -1,3 +1,3 @@
 export * from './Header/Header';
-export * from './Panel/Panel';
+export * from './TodoPanel/TodoPanel';
 export * from './TodoList';

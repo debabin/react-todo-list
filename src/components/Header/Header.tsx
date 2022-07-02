@@ -1,14 +1,15 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+
+import styles from './Header.module.css';
 
 interface HeaderProps {
   todoCount: number;
 }
 
 export const Header: React.FC<HeaderProps> = ({ todoCount }) => (
-  <Box textAlign='left'>
-    <Typography sx={{ fontSize: 35 }} variant='h1' component='h1' gutterBottom>
-      Todo list {todoCount} task(s)
-    </Typography>
-  </Box>
+  <div className={styles.header_container}>
+    <h1 className={styles.header_title}>
+      Todo list <b>{todoCount}</b> task(s)
+    </h1>
+  </div>
 );
