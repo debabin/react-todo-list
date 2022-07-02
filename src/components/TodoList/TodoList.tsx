@@ -3,7 +3,7 @@ import { Box } from '@mui/material';
 
 import type { Todo } from '../../App';
 import { TodoItem } from './TodoItem/TodoItem';
-import { Panel } from '../Panel/Panel';
+import { TodoPanel } from '../Panel/Panel';
 
 interface TodoListProps {
   editTodoId: Todo['id'] | null;
@@ -25,7 +25,7 @@ export const TodoList: React.FC<TodoListProps> = ({
   <Box>
     {todoList.map((todo) => {
       if (todo.id === editTodoId)
-        return <Panel mode='edit' onChangeTodo={onChangeTodo} editTodo={todo} />;
+        return <TodoPanel mode='edit' onChangeTodo={onChangeTodo} editTodo={todo} />;
       return (
         <TodoItem
           key={todo.id}

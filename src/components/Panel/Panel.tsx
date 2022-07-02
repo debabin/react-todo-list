@@ -6,20 +6,20 @@ import type { Todo } from '../../App';
 
 const DEFAULT_TODO = { name: '', description: '' };
 
-interface AddPanelProps {
+interface AddTodoPanelProps {
   mode: 'add';
   onAddTodo: ({ name, description }: Omit<Todo, 'id' | 'checked'>) => void;
 }
 
-interface EditPanelProps {
+interface EditTodoPanelProps {
   mode: 'edit';
   editTodo: Omit<Todo, 'id' | 'checked'>;
   onChangeTodo: ({ name, description }: Omit<Todo, 'id' | 'checked'>) => void;
 }
 
-type PanelProps = AddPanelProps | EditPanelProps;
+type TodoPanelProps = AddTodoPanelProps | EditTodoPanelProps;
 
-export const Panel: React.FC<PanelProps> = (props) => {
+export const TodoPanel: React.FC<TodoPanelProps> = (props) => {
   const isEdit = props.mode === 'edit';
   const [todo, setTodo] = React.useState(isEdit ? props.editTodo : DEFAULT_TODO);
 

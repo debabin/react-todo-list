@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
 
-import { Header, Panel, TodoList } from './components';
+import { Header, TodoPanel, TodoList } from './components';
 
 export type Todo = {
   id: number;
@@ -68,7 +68,7 @@ export const App = () => {
     <Box marginTop={5} height='100%' display='flex' justifyContent='center' alignContent='center'>
       <Box display='flex' flexDirection='column' width='500px'>
         <Header todoCount={todoList.length} />
-        <Panel mode='add' onAddTodo={onAddTodo} />
+        <TodoPanel mode='add' onAddTodo={onAddTodo} />
         <TodoList
           editTodoId={editTodoId}
           todoList={todoList}
