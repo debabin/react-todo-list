@@ -58,8 +58,16 @@ export const TodoProvider: React.FC<StoreProviderProps> = ({ children }) => {
   };
 
   const value = React.useMemo(
-    () => ({ todos, deleteTodo, changeTodo, checkTodo, addTodo, selectTodoIdForEdit }),
-    [todos, deleteTodo, changeTodo, checkTodo, addTodo, selectTodoIdForEdit]
+    () => ({
+      todoIdForEdit,
+      todos,
+      deleteTodo,
+      changeTodo,
+      checkTodo,
+      addTodo,
+      selectTodoIdForEdit
+    }),
+    [todos, deleteTodo, changeTodo, checkTodo, addTodo, selectTodoIdForEdit, todoIdForEdit]
   );
 
   return <TodoContext.Provider value={value}>{children}</TodoContext.Provider>;

@@ -1,31 +1,32 @@
 import React from 'react';
 
+import { useTodo } from '../../utils';
+
 import styles from './TodoPanel.module.css';
 
 const DEFAULT_TODO = { name: '', description: '' };
 
 interface AddTodoPanelProps {
   mode: 'add';
-  addTodo: ({ name, description }: Omit<Todo, 'id' | 'checked'>) => void;
 }
 
 interface EditTodoPanelProps {
   mode: 'edit';
   editTodo: Omit<Todo, 'id' | 'checked'>;
-  changeTodo: ({ name, description }: Omit<Todo, 'id' | 'checked'>) => void;
 }
 
 type TodoPanelProps = AddTodoPanelProps | EditTodoPanelProps;
 
 export const TodoPanel: React.FC<TodoPanelProps> = (props) => {
   const isEdit = props.mode === 'edit';
+  const { changeTodo, addTodo } = useTodo();
   const [todo, setTodo] = React.useState(isEdit ? props.editTodo : DEFAULT_TODO);
 
   const onClick = () => {
     if (isEdit) {
-      return props.changeTodo(todo);
+      return changeTodo(todo);
     }
-    props.addTodo(todo);
+    addTodo(todo);
     setTodo(DEFAULT_TODO);
   };
 
