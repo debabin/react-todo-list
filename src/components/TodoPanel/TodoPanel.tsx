@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Button } from '../Button/Button';
+
 import styles from './TodoPanel.module.css';
 
 const DEFAULT_TODO = { name: '', description: '' };
@@ -58,14 +60,14 @@ export const TodoPanel: React.FC<TodoPanelProps> = (props) => {
       </div>
       <div className={styles.button_container}>
         {!isEdit && (
-          <button className={styles.button_add} onClick={onClick}>
+          <Button color='blue' onClick={onClick}>
             ADD
-          </button>
+          </Button>
         )}
         {isEdit && (
-          <button className={styles.button_edit} onClick={onClick}>
+          <Button color='orange' onClick={onClick}>
             EDIT
-          </button>
+          </Button>
         )}
       </div>
     </div>

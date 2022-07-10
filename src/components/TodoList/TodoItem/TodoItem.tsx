@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from '../../Button/Button';
 
 import styles from './TodoItem.module.css';
 
@@ -33,12 +34,12 @@ export const TodoItem: React.FC<TodoItemProps> = ({
       </div>
     </div>
     <div className={styles.todo_item_button_container}>
-      <button className={styles.todo_item_button_edit} onClick={() => selectTodoIdForEdit(todo.id)}>
+      <Button color='orange' onClick={() => selectTodoIdForEdit(todo.id)}>
         EDIT
-      </button>
-      <button className={styles.todo_item_button_delete} onClick={() => deleteTodo(todo.id)}>
+      </Button>
+      <Button color='red' onClick={() => deleteTodo(todo.id)}>
         DELETE
-      </button>
+      </Button>
     </div>
   </div>
 );

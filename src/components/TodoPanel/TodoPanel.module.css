@@ -36,29 +36,3 @@
   text-align: right;
   margin-top: 10px;
 }
-
-.button_add {
-  border-radius: 5px;
-  border: 1px solid rgba(25, 118, 210, 0.5);
-  color: #1976d2;
-  padding: 8px 20px;
-  cursor: pointer;
-  background-color: white;
-}
-
-.button_add:hover {
-  background-color: rgba(25, 118, 210, 0.05);
-}
-
-.button_edit {
-  border-radius: 5px;
-  border: 1px solid rgba(210, 102, 25, 0.5);
-  color: #d27c19;
-  padding: 8px 20px;
-  cursor: pointer;
-  background-color: white;
-}
-
-.button_edit:hover {
-  background-color: rgba(210, 84, 25, 0.05);
-}
